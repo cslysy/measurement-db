@@ -43,7 +43,7 @@ Stores information about device measurement attempts
 CREATE TABLE measurement
 (
   id serial NOT NULL,
-  date timestamp without time zone NOT NULL,
+  date date NOT NULL,
   time time without time zone,
   device_id integer NOT NULL,
   CONSTRAINT measurement_pkey PRIMARY KEY (id),
