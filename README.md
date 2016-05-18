@@ -84,7 +84,7 @@ CREATE UNIQUE INDEX measurement_time_idx ON measurement (time);
 CREATE UNIQUE INDEX measurement_device_id_idx ON measurement (device_id);
 CREATE UNIQUE INDEX measurement_parameter_measurement_id_idx ON measurement_parameter (measurement_id);
 ```
-As any report from reports above does not require matching measurement parameters value index for this column has not been created.
+As any report from reports below does not require matching measurement parameters value index for this column has not been created.
 
 ## Reports
 
