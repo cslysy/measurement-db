@@ -71,6 +71,21 @@ CREATE TABLE measurement_parameter
 );
 ```
 
+## Indexes
+
+Following indexes may be considered:
+
+```sql
+CREATE UNIQUE INDEX device_type_idx ON device_type (type);
+CREATE UNIQUE INDEX device_identifier_idx ON device (identifier);
+CREATE UNIQUE INDEX device_device_type_id_idx ON device (device_type_id);
+CREATE UNIQUE INDEX measurement_date_idx ON measurement (date);
+CREATE UNIQUE INDEX measurement_time_idx ON measurement (time);
+CREATE UNIQUE INDEX measurement_device_id_idx ON measurement (device_id);
+CREATE UNIQUE INDEX measurement_parameter_measurement_id_idx ON measurement_parameter (measurement_id);
+```
+As any report from reports above does not require matching measurement parameters value index for this column has not been created.
+
 ## Reports
 
 Returns all `measurement_parameters` for the given `device` within defined time frame
