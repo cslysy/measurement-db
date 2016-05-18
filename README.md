@@ -1,5 +1,9 @@
 # measurement-db
 
+## Schema overview
+
+![schema-overview](/schema-overview.png)
+
 ## Tables
 
 ### device_type
