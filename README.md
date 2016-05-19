@@ -1,5 +1,9 @@
 # measurement-db
 
+Database schema for collecting measurements produced by various type of devices.
+
+Tested on PostgreSQL 9.5
+
 ## Schema overview
 
 ![schema-overview](/schema-overview.png)
@@ -121,7 +125,7 @@ Returns most recent `measurement_parameters` for all `devices` of the given `typ
 
 ```sql
 SELECT m1.device_id,
-       measurement_parameter.value AS measurement_parameter_value
+       measurement_parameter.value
 FROM   measurement m1
        JOIN (SELECT device_id, max(time) AS recent_time
              FROM   measurement
@@ -131,3 +135,7 @@ FROM   measurement m1
        INNER JOIN measurement_parameter ON measurement_parameter.measurement_id = m1.id
 ORDER BY m1.device_id
 ```
+
+## Summary
+
+For the sake of time, database has been design in a traditional warehouse-like approach. In my opinion, scenario where sensors data are periodically submitted into the system should be implemented using stream processing. Going this way, instead of creating time-consuming queries, data for the reports should be available in almost real time using continuous computation of incoming measurements.
